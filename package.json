@@ -20,7 +20,9 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@gfazioli/mantine-border-animate": "^0.3.3",
     "@mantine/core": "8.3.11",
+    "@mantine/form": "^8.3.12",
     "@mantine/hooks": "8.3.11",
     "@next/bundle-analyzer": "^16.0.0",
     "@tabler/icons-react": "^3.35.0",
