@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { BorderAnimate } from '@gfazioli/mantine-border-animate';
-import { IconBrandGoogleFilled } from '@tabler/icons-react';
 import {
   Button,
   Checkbox,
@@ -15,10 +16,15 @@ import {
 } from '@mantine/core';
 import { isEmail, useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
+import { showNotification } from '@mantine/notifications';
 import { authClient } from '@/utils/auth-client';
+import { IconGoogleSvg } from './_internal/_icon_svg';
 
 export const LoginForm = () => {
   const [visible, { toggle }] = useDisclosure(false);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const form = useForm({
     initialValues: {
@@ -33,30 +39,55 @@ export const LoginForm = () => {
     },
   });
 
-  const onValidate = (values: { email: string; password: string; rememberMe: boolean }) => {
+  const onValidate = async (values: { email: string; password: string; rememberMe: boolean }) => {
     console.log(values);
+    setLoading(true);
     const { email, password, rememberMe } = values;
-    if (!email || !password) {
-      console.error('Missing: ', email, password);
-    }
     //Call API to Login?
-    authClient.signIn.email({ email, password, rememberMe });
+    try {
+      const signIn = await authClient.signIn.email({ email, password, rememberMe });
+      console.log('SIGNIN:', signIn);
+      if (signIn.data?.user) {
+        router.replace('/');
+      }
+    } catch (err) {
+      console.error(err);
+      showNotification({
+        color: 'red',
+        title: 'Login failed',
+        message: 'Invalid email or password',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    setLoading(true);
+    try {
+      const gooleSignIn = await authClient.signIn.social({
+        provider: 'google',
+        callbackURL: '/',
+        errorCallbackURL: '/error?authError=google',
+      });
+      console.log('GOOGLE SIGNIN:', gooleSignIn);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
-      <Stack>
+      <Stack w="100%">
         <Button
-          leftSection={
-            <IconBrandGoogleFilled
-              style={{ color: 'linear-gradient(-120deg, #4285F4, #34A853, #FBBC05, #EA4335)' }}
-            />
-          }
+          onClick={signInWithGoogle}
+          leftSection={<IconGoogleSvg />}
           variant="default"
-          bdrs="xl"
+          radius="xl"
           w="100%"
-          type="button"
-          color="dark"
+          loading={loading}
         >
           Continue with Google
         </Button>
@@ -73,8 +104,10 @@ export const LoginForm = () => {
           mb={12}
           withAsterisk
           label="Email"
+          type="email"
+          autoComplete="email"
           placeholder="Enter your email"
-          key={form.key('email')}
+          // key={form.key('email')}
           {...form.getInputProps('email')}
         />
 
@@ -82,8 +115,9 @@ export const LoginForm = () => {
           mb={12}
           withAsterisk
           label="Password"
+          autoComplete="current-password"
           placeholder="Enter your password"
-          key={form.key('password')}
+          // key={form.key('password')}
           visible={visible}
           onVisibilityChange={toggle}
           {...form.getInputProps('password')}
@@ -91,8 +125,8 @@ export const LoginForm = () => {
 
         <Checkbox
           mt={12}
-          label="Remeber me"
-          key={form.key('rememberMe')}
+          label="Remember me"
+          // key={form.key('rememberMe')}
           {...form.getInputProps('rememberMe')}
         />
 
@@ -106,7 +140,14 @@ export const LoginForm = () => {
             borderWidth="sm"
             duration={5}
           >
-            <Button variant="default" bdrs="xl" w="100%" type="submit" color="dark">
+            <Button
+              variant="default"
+              radius="xl"
+              w="100%"
+              type="submit"
+              color="dark"
+              loading={loading}
+            >
               Continue
             </Button>
           </BorderAnimate>

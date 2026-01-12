@@ -1,6 +1,7 @@
 import { firestoreAdapter, initFirestore } from '@yultyyev/better-auth-firestore';
 import { betterAuth } from 'better-auth';
 import { cert } from 'firebase-admin/app';
+import { hashPassword, verifyPassword } from './password-utils';
 
 const firestore = initFirestore({
   credential: cert({
@@ -16,6 +17,10 @@ export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true,
+    password: {
+      hash: hashPassword,
+      verify: verifyPassword,
+    },
   },
   socialProviders: {
     google: {
@@ -27,11 +32,11 @@ export const auth = betterAuth({
   database: firestoreAdapter({
     firestore,
     namingStrategy: 'default',
-    // collections: {
-    //   users: 'users',
-    //   // sessions: "sessions",
-    //   // accounts: "accounts",
-    //   // verificationTokens: "verificationTokens",
-    // },
+    collections: {
+      users: 'users',
+      //   // sessions: "sessions",
+      //   // accounts: "accounts",
+      //   // verificationTokens: "verificationTokens",
+    },
   }),
 });

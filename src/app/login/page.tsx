@@ -1,5 +1,6 @@
-import { Center, Image, Stack } from '@mantine/core';
-import { LoginForm } from '@/components/login/login-form';
+import { Center, Divider, Image, Stack } from '@mantine/core';
+import { LoginForm } from '@/components/auth/login/login-form';
+import { SignUpButton } from '@/components/auth/signup';
 
 export default function LoginPage() {
   return (
@@ -8,6 +9,10 @@ export default function LoginPage() {
         <Image src="/img/login-test.jpg" w={100} h={100} fit="cover" bdrs="xl" />
 
         <LoginForm />
+
+        <Divider w="100%" my={12} label="OR" />
+
+        <SignUpButton />
       </Stack>
     </Center>
   );

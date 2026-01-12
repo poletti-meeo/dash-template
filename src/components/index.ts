@@ -1,3 +1,3 @@
 export * from './ColorSchemeToggle';
 export * from './Welcome';
-export * from './login';
+export * from './auth';

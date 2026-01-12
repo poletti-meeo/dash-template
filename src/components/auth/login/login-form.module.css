@@ -1,0 +1,16 @@
+.googleIcon {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(
+    90deg,
+    #4285f4,
+    #34a853,
+    #fbbc05,
+    #ea4335
+  );
+
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 11.98v2.77h6.92c-.28 1.53-1.85 4.48-6.92 4.48-4.17 0-7.58-3.45-7.58-7.7s3.41-7.7 7.58-7.7c2.37 0 3.96 1.01 4.87 1.88l3.31-3.19C18.16 1.92 15.3.5 12 .5 5.73.5.5 5.73.5 12s5.23 11.5 11.5 11.5c6.63 0 11.02-4.66 11.02-11.22 0-.75-.08-1.32-.18-1.9H12z'/%3E%3C/svg%3E")
+    no-repeat center;
+
+  mask: inherit;
+}

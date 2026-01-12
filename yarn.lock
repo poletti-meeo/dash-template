@@ -1872,6 +1872,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+  version: 7.28.4
+  resolution: "@babel/runtime@npm:7.28.4"
+  checksum: 10c0/792ce7af9750fb9b93879cc9d1db175701c4689da890e6ced242ea0207c9da411ccf16dc04e689cc01158b28d7898c40d75598f4559109f761c12ce01e959bf7
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/template@npm:7.22.15"
@@ -3625,6 +3632,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/notifications@npm:^8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/notifications@npm:8.3.12"
+  dependencies:
+    "@mantine/store": "npm:8.3.12"
+    react-transition-group: "npm:4.4.5"
+  peerDependencies:
+    "@mantine/core": 8.3.12
+    "@mantine/hooks": 8.3.12
+    react: ^18.x || ^19.x
+    react-dom: ^18.x || ^19.x
+  checksum: 10c0/2635320566552172390b86b26bdc309518d9b740cb96d41ad551a9bc53f30e6b6b906da8c98f252e3b418ef5878e96ebccc46aa20ec0520b4d569fa14ccf89c1
+  languageName: node
+  linkType: hard
+
+"@mantine/store@npm:8.3.12":
+  version: 8.3.12
+  resolution: "@mantine/store@npm:8.3.12"
+  peerDependencies:
+    react: ^18.x || ^19.x
+  checksum: 10c0/f5ab5b8ebc690cbd447b97ab8654c9e7173006011a03156030b08dbe23ad19cdbaf104368735042df6048030676dd23e3f8ee8c50db09c55d11a21a3a7e5d896
+  languageName: node
+  linkType: hard
+
 "@napi-rs/wasm-runtime@npm:^0.2.11":
   version: 0.2.11
   resolution: "@napi-rs/wasm-runtime@npm:0.2.11"
@@ -3633,6 +3664,17 @@ __metadata:
     "@emnapi/runtime": "npm:^1.4.3"
     "@tybys/wasm-util": "npm:^0.9.0"
   checksum: 10c0/049bd14c58b99fbe0967b95e9921c5503df196b59be22948d2155f17652eb305cff6728efd8685338b855da7e476dd2551fbe3a313fc2d810938f0717478441e
+  languageName: node
+  linkType: hard
+
+"@napi-rs/wasm-runtime@npm:^0.2.5":
+  version: 0.2.12
+  resolution: "@napi-rs/wasm-runtime@npm:0.2.12"
+  dependencies:
+    "@emnapi/core": "npm:^1.4.3"
+    "@emnapi/runtime": "npm:^1.4.3"
+    "@tybys/wasm-util": "npm:^0.10.0"
+  checksum: 10c0/6d07922c0613aab30c6a497f4df297ca7c54e5b480e00035e0209b872d5c6aab7162fc49477267556109c2c7ed1eb9c65a174e27e9b87568106a87b0a6e3ca7d
   languageName: node
   linkType: hard
 
@@ -3728,6 +3770,157 @@ __metadata:
   version: 2.0.1
   resolution: "@noble/hashes@npm:2.0.1"
   checksum: 10c0/e81769ce21c3b1c80141a3b99bd001f17edea09879aa936692ae39525477386d696101cd573928a304806efb2b9fa751e1dd83241c67d0c84d30091e85c79bdb
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-android-arm-eabi@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-android-arm-eabi@npm:2.0.2"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-android-arm64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-android-arm64@npm:2.0.2"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-darwin-arm64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-darwin-arm64@npm:2.0.2"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-darwin-x64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-darwin-x64@npm:2.0.2"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-freebsd-x64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-freebsd-x64@npm:2.0.2"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-linux-arm-gnueabihf@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-linux-arm-gnueabihf@npm:2.0.2"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-linux-arm64-gnu@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-linux-arm64-gnu@npm:2.0.2"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-linux-arm64-musl@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-linux-arm64-musl@npm:2.0.2"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-linux-x64-gnu@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-linux-x64-gnu@npm:2.0.2"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-linux-x64-musl@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-linux-x64-musl@npm:2.0.2"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-wasm32-wasi@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-wasm32-wasi@npm:2.0.2"
+  dependencies:
+    "@napi-rs/wasm-runtime": "npm:^0.2.5"
+  conditions: cpu=wasm32
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-win32-arm64-msvc@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-win32-arm64-msvc@npm:2.0.2"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-win32-ia32-msvc@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-win32-ia32-msvc@npm:2.0.2"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2-win32-x64-msvc@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2-win32-x64-msvc@npm:2.0.2"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@node-rs/argon2@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@node-rs/argon2@npm:2.0.2"
+  dependencies:
+    "@node-rs/argon2-android-arm-eabi": "npm:2.0.2"
+    "@node-rs/argon2-android-arm64": "npm:2.0.2"
+    "@node-rs/argon2-darwin-arm64": "npm:2.0.2"
+    "@node-rs/argon2-darwin-x64": "npm:2.0.2"
+    "@node-rs/argon2-freebsd-x64": "npm:2.0.2"
+    "@node-rs/argon2-linux-arm-gnueabihf": "npm:2.0.2"
+    "@node-rs/argon2-linux-arm64-gnu": "npm:2.0.2"
+    "@node-rs/argon2-linux-arm64-musl": "npm:2.0.2"
+    "@node-rs/argon2-linux-x64-gnu": "npm:2.0.2"
+    "@node-rs/argon2-linux-x64-musl": "npm:2.0.2"
+    "@node-rs/argon2-wasm32-wasi": "npm:2.0.2"
+    "@node-rs/argon2-win32-arm64-msvc": "npm:2.0.2"
+    "@node-rs/argon2-win32-ia32-msvc": "npm:2.0.2"
+    "@node-rs/argon2-win32-x64-msvc": "npm:2.0.2"
+  dependenciesMeta:
+    "@node-rs/argon2-android-arm-eabi":
+      optional: true
+    "@node-rs/argon2-android-arm64":
+      optional: true
+    "@node-rs/argon2-darwin-arm64":
+      optional: true
+    "@node-rs/argon2-darwin-x64":
+      optional: true
+    "@node-rs/argon2-freebsd-x64":
+      optional: true
+    "@node-rs/argon2-linux-arm-gnueabihf":
+      optional: true
+    "@node-rs/argon2-linux-arm64-gnu":
+      optional: true
+    "@node-rs/argon2-linux-arm64-musl":
+      optional: true
+    "@node-rs/argon2-linux-x64-gnu":
+      optional: true
+    "@node-rs/argon2-linux-x64-musl":
+      optional: true
+    "@node-rs/argon2-wasm32-wasi":
+      optional: true
+    "@node-rs/argon2-win32-arm64-msvc":
+      optional: true
+    "@node-rs/argon2-win32-ia32-msvc":
+      optional: true
+    "@node-rs/argon2-win32-x64-msvc":
+      optional: true
+  checksum: 10c0/0513244f8b820cd38e3b3dc8ad4dbee2f2ada3ba37714c3975dbf801df26ab906b420fb769c171fee0ac06caff9e0471c827e18876f55568ea234b9b48e6da53
   languageName: node
   linkType: hard
 
@@ -4263,6 +4456,15 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: 10c0/073bfa548026b1ebaf1659eb8961e526be22fa77139b10d60e712f46d2f0f05f4e6c8bec62a087d41088ee9e29faa7f54838568e475ab2f776171003c3920858
+  languageName: node
+  linkType: hard
+
+"@tybys/wasm-util@npm:^0.10.0":
+  version: 0.10.1
+  resolution: "@tybys/wasm-util@npm:0.10.1"
+  dependencies:
+    tslib: "npm:^2.4.0"
+  checksum: 10c0/b255094f293794c6d2289300c5fbcafbb5532a3aed3a5ffd2f8dc1828e639b88d75f6a376dd8f94347a44813fd7a7149d8463477a9a49525c8b2dcaa38c2d1e8
   languageName: node
   linkType: hard
 
@@ -7180,7 +7382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.2.2":
+"csstype@npm:^3.0.2, csstype@npm:^3.2.2":
   version: 3.2.3
   resolution: "csstype@npm:3.2.3"
   checksum: 10c0/cd29c51e70fa822f1cecd8641a1445bed7063697469d35633b516e60fe8c1bde04b08f6c5b6022136bb669b64c63d4173af54864510fbb4ee23281801841a3ce
@@ -7536,6 +7738,16 @@ __metadata:
   dependencies:
     utila: "npm:~0.4"
   checksum: 10c0/e96aa63bd8c6ee3cd9ce19c3aecfc2c42e50a460e8087114794d4f5ecf3a4f052b34ea3bf2d73b5d80b4da619073b49905e6d7d788ceb7814ca4c29be5354a11
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.8.7"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/f735074d66dd759b36b158fa26e9d00c9388ee0e8c9b16af941c38f014a37fc80782de83afefd621681b19ac0501034b4f1c4a3bff5caa1b8667f0212b5e124c
   languageName: node
   linkType: hard
 
@@ -12032,7 +12244,9 @@ __metadata:
     "@mantine/core": "npm:8.3.11"
     "@mantine/form": "npm:^8.3.12"
     "@mantine/hooks": "npm:8.3.11"
+    "@mantine/notifications": "npm:^8.3.12"
     "@next/bundle-analyzer": "npm:^16.0.0"
+    "@node-rs/argon2": "npm:^2.0.2"
     "@storybook/addon-themes": "npm:^10.0.0"
     "@storybook/nextjs": "npm:^10.0.0"
     "@storybook/react": "npm:^10.0.0"
@@ -13546,7 +13760,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -13841,6 +14055,21 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
   checksum: 10c0/3a924db59259a6e3b834dcddc12a8661b43dcdaa1b43c41c732e0548bb2761e9a53dbc6db4e0d9e237728b4869e42c25e5417408b0391aec290c90874733a09f
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:4.4.5":
+  version: 4.4.5
+  resolution: "react-transition-group@npm:4.4.5"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.5"
+    dom-helpers: "npm:^5.0.1"
+    loose-envify: "npm:^1.4.0"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: 10c0/2ba754ba748faefa15f87c96dfa700d5525054a0141de8c75763aae6734af0740e77e11261a1e8f4ffc08fd9ab78510122e05c21c2d79066c38bb6861a886c82
   languageName: node
   linkType: hard
 
