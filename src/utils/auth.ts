@@ -1,3 +1,4 @@
+import { headers as Headers } from 'next/headers';
 import { firestoreAdapter, initFirestore } from '@yultyyev/better-auth-firestore';
 import { betterAuth } from 'better-auth';
 import { cert } from 'firebase-admin/app';
@@ -40,3 +41,12 @@ export const auth = betterAuth({
     },
   }),
 });
+
+export async function getServerSession() {
+  const headers = await Headers();
+  const session = await auth.api.getSession({
+    headers,
+  });
+
+  return session;
+}

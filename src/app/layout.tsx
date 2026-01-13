@@ -23,8 +23,8 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>
-          <Notifications />
+        <MantineProvider theme={theme} defaultColorScheme="dark">
+          <Notifications position="top-right" />
           {children}
         </MantineProvider>
       </body>

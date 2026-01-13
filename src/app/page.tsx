@@ -1,11 +1,12 @@
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
-import { Welcome } from '@/components/Welcome/Welcome';
+import { redirect } from 'next/navigation';
+import { getServerSession } from '@/utils/auth';
 
-export default function HomePage() {
-  return (
-    <>
-      <Welcome />
-      <ColorSchemeToggle />
-    </>
-  );
+export default async function RootPage() {
+  const session = await getServerSession();
+
+  if (!session) {
+    redirect('/login');
+  }
+
+  redirect('/dashboard');
 }
