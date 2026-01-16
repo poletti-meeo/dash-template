@@ -3,6 +3,7 @@ import '@mantine/notifications/styles.css';
 import '@gfazioli/mantine-border-animate/styles.css';
 
 import { ColorSchemeScript, mantineHtmlProps, MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
 import { theme } from '@/store/theme';
 
@@ -24,8 +25,10 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <Notifications position="top-right" />
-          {children}
+          <ModalsProvider>
+            <Notifications position="top-right" />
+            {children}
+          </ModalsProvider>
         </MantineProvider>
       </body>
     </html>

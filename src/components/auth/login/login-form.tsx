@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { BorderAnimate } from '@gfazioli/mantine-border-animate';
 import {
@@ -17,12 +16,15 @@ import {
 import { isEmail, useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
+import { useAuthStore } from '@/store/auth';
 import { authClient } from '@/utils/auth-client';
 import { IconGoogleSvg } from './_internal/_icon_svg';
 
 export const LoginForm = () => {
   const [visible, { toggle }] = useDisclosure(false);
-  const [loading, setLoading] = useState(false);
+
+  const authLoading = useAuthStore((s) => s.authLoading);
+  const setAuthLoading = useAuthStore((s) => s.setAuthLoading);
 
   const router = useRouter();
 
@@ -41,7 +43,7 @@ export const LoginForm = () => {
 
   const onValidate = async (values: { email: string; password: string; rememberMe: boolean }) => {
     console.log(values);
-    setLoading(true);
+    setAuthLoading(true);
     const { email, password, rememberMe } = values;
     //Call API to Login?
     try {
@@ -58,12 +60,12 @@ export const LoginForm = () => {
         message: 'Invalid email or password',
       });
     } finally {
-      setLoading(false);
+      setAuthLoading(false);
     }
   };
 
   const signInWithGoogle = async () => {
-    setLoading(true);
+    setAuthLoading(true);
     try {
       const gooleSignIn = await authClient.signIn.social({
         provider: 'google',
@@ -74,7 +76,7 @@ export const LoginForm = () => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false);
+      setAuthLoading(false);
     }
   };
 
@@ -87,7 +89,7 @@ export const LoginForm = () => {
           variant="default"
           radius="xl"
           w="100%"
-          loading={loading}
+          loading={authLoading}
         >
           Continue with Google
         </Button>
@@ -146,7 +148,7 @@ export const LoginForm = () => {
               w="100%"
               type="submit"
               color="dark"
-              loading={loading}
+              loading={authLoading}
             >
               Continue
             </Button>

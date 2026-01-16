@@ -2,10 +2,12 @@
 
 import { AppShell, Burger, Group, Text, UnstyledButton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle/ColorSchemeToggle';
+import { LoggedUserMenu } from '@/components';
+import { ColorSchemeToggle } from '@/components/header/color-scheme-toggle/color-scheme-toggle';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const [opened, { toggle }] = useDisclosure();
+  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
   return (
     <AppShell
@@ -13,16 +15,19 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       navbar={{
         width: 280,
         breakpoint: 'sm',
-        collapsed: { mobile: !opened },
+        collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
       }}
       padding="md"
     >
       <AppShell.Header>
         <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
+          <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
+
           <Text fw={700}>Dash Template</Text>
           <Group ml="auto">
             <ColorSchemeToggle />
+            <LoggedUserMenu />
           </Group>
         </Group>
       </AppShell.Header>

@@ -1,3 +1,3 @@
-export * from './ColorSchemeToggle';
-export * from './Welcome';
+export * from './header';
 export * from './auth';
+export * from './dashboard';

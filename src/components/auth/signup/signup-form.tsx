@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { BorderAnimate } from '@gfazioli/mantine-border-animate';
-import { Button, Card, Group, PasswordInput, TextInput, Title } from '@mantine/core';
+import { IconArrowLeft } from '@tabler/icons-react';
+import { ActionIcon, Button, Card, Group, PasswordInput, TextInput, Title } from '@mantine/core';
 import { isEmail, useForm } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
@@ -41,13 +42,20 @@ export const SignUpForm = () => {
     const { email, password, name } = values;
     //Call API to Login?
     try {
-      const signUp = await authClient.signUp.email({ email, password, name, image: 'null' });
+      const signUp = await authClient.signUp.email({
+        email: email.toLowerCase(),
+        password,
+        name,
+        image: 'null',
+      });
       console.log('SIGNUP:', signUp);
+      if (signUp.error) {
+        throw new Error(signUp.error.message);
+      }
       if (signUp.data?.user) {
         router.replace('/login');
       }
     } catch (err) {
-      console.error(err);
       showNotification({
         color: 'red',
         title: 'Login failed',
@@ -60,9 +68,20 @@ export const SignUpForm = () => {
 
   return (
     <Card withBorder w="100%" p="lg" radius="lg">
-      <Title size="lg" mb={12} ta="center">
-        Sign Up
-      </Title>
+      <Group align="center" mb={12}>
+        <ActionIcon
+          variant="transparent"
+          c="dark"
+          onClick={() => {
+            router.back();
+          }}
+        >
+          <IconArrowLeft size={24} />
+        </ActionIcon>
+        <Title size="lg" ta="center">
+          Sign Up
+        </Title>
+      </Group>
       <form onSubmit={form.onSubmit(onValidate)} style={{ width: '100%' }}>
         <TextInput
           mb={12}
