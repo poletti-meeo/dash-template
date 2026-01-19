@@ -1,8 +1,9 @@
 'use client';
 
-import { AppShell, Burger, Group, Text, UnstyledButton } from '@mantine/core';
+import { IconHome, IconSettings, IconUsersGroup } from '@tabler/icons-react';
+import { AppShell, Burger, Group, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { LoggedUserMenu } from '@/components';
+import { LoggedUserMenu, NavbarLink } from '@/components';
 import { ColorSchemeToggle } from '@/components/header/color-scheme-toggle/color-scheme-toggle';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -33,9 +34,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <UnstyledButton>Dashboard</UnstyledButton>
-        <UnstyledButton>Users</UnstyledButton>
-        <UnstyledButton>Settings</UnstyledButton>
+        <NavbarLink href="/dashboard" label="Home" icon={<IconHome size={18} />} />
+        <NavbarLink href="/dashboard/users" label="Users" icon={<IconUsersGroup size={18} />} />
+        <NavbarLink href="/dashboard/settings" label="Settings" icon={<IconSettings size={18} />} />
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>

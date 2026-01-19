@@ -23,12 +23,14 @@ const firestore =
     'better-auth'
   ));
 
+if (!global.__betterAuthFirestore) {
+  admin.firestore(admin.app('better-auth')).settings({ ignoreUndefinedProperties: true });
+}
 const db = firestore.firestore();
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
   secret: process.env.BETTER_AUTH_SECRET,
-  session: {},
 
   emailAndPassword: {
     enabled: true,
@@ -37,6 +39,7 @@ export const auth = betterAuth({
       verify: verifyPassword,
     },
   },
+
   socialProviders: {
     google: {
       prompt: 'select_account',
@@ -44,7 +47,18 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
-  database: firestoreAdapter(db),
+
+  database: firestoreAdapter({
+    firestore: db,
+    debugLogs: true,
+    namingStrategy: 'default',
+    collections: {
+      verificationTokens: 'verification',
+      accounts: 'accounts',
+      sessions: 'sessions',
+      users: 'users',
+    },
+  }),
 });
 
 export async function getServerSession() {
