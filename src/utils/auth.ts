@@ -1,5 +1,5 @@
 import { headers as Headers } from 'next/headers';
-import { betterAuth } from 'better-auth';
+import { betterAuth, Session, User } from 'better-auth';
 import { firestoreAdapter } from 'better-auth-firestore';
 import admin from 'firebase-admin';
 import { cert } from 'firebase-admin/app';
@@ -61,11 +61,14 @@ export const auth = betterAuth({
   }),
 });
 
-export async function getServerSession() {
+export async function getServerSession(): Promise<{ session: Session | null; user: User | null }> {
   const headers = await Headers();
   const session = await auth.api.getSession({
     headers,
   });
 
+  if (!session) {
+    return { session: null, user: null };
+  }
   return session;
 }
