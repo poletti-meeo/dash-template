@@ -1,5 +1,8 @@
 {
     "conventionalCommits.scopes": [
-        "General Features"
+        "General Features",
+        "Packages",
+        "Settings Page",
+        "Auth"
     ]
 }
