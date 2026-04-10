@@ -1,4 +1,5 @@
 export * from './auth';
+export * from './bands';
 export * from './settings';
 export * from './calendar';
 export * from './live';
